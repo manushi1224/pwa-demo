@@ -1,0 +1,17 @@
+{
+    "name": "Mist Showcase",
+    "short_name": "MistShowCase",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background-color": "#adffe4",
+    "theme_color": "#d5fce7",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "./images/nature.png",
+            "type":"image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
+    ]
+}

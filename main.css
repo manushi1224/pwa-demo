@@ -1,0 +1,32 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 1rem 0;
+}
+
+.card{
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.064), 6px 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-img-top{
+    object-fit: cover !important;
+    height: 10rem;
+}
