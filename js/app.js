@@ -6,15 +6,6 @@ const images = [
   { name: "mist3", image: "../images/wp4155376-mist-wallpapers.jpg" },
 ];
 
-const check = () => {
-  if (!("serviceWorker" in navigator)) {
-    throw new Error("No Service Worker support!");
-  }
-  if (!("PushManager" in window)) {
-    throw new Error("No Push API Support!");
-  }
-};
-
 const showCards = () => {
   let output = ``;
   images.forEach(
@@ -36,19 +27,19 @@ const showCards = () => {
 
 document.addEventListener("DOMContentLoaded", showCards);
 
-// if ("serviceWorker" in navigator) {
-//   window.addEventListener("load", function () {
-//     navigator.serviceWorker
-//       .register("/serviceWorker.js")
-//       .then((res) => console.log("service worker registered"))
-//       .catch((err) => console.log("service worker not refistered:", err));
-//   });
-// }
+const check = () => {
+  if (!("serviceWorker" in navigator)) {
+    throw new Error("No Service Worker support!");
+  }
+  if (!("PushManager" in window)) {
+    throw new Error("No Push API Support!");
+  }
+};
 
 const registerServiceWorker = async () => {
   const swRegistration = await navigator.serviceWorker.register(
     "../serviceWorker.js"
-  ); //notice the file name
+  );
   return swRegistration;
 };
 
@@ -59,10 +50,32 @@ const requestNotificationPermission = async () => {
   }
 };
 
+const showLocalNotification = (title, body, swRegistration) => {
+  const options = {
+    body,
+    icon: "../images/icon-144x144.png",
+  };
+  swRegistration.showNotification(title, options);
+};
+
 const main = async () => {
   check();
   const swRegistration = await registerServiceWorker();
   const permission = await requestNotificationPermission();
+  showLocalNotification(
+    "About Mist Forests",
+    "They are beutiful!",
+    swRegistration
+  );
 };
 
-main();
+// main();
+
+// if ("serviceWorker" in navigator) {
+//   window.addEventListener("load", function () {
+//     navigator.serviceWorker
+//       .register("/serviceWorker.js")
+//       .then((res) => console.log("service worker registered"))
+//       .catch((err) => console.log("service worker not refistered:", err));
+//   });
+// }
