@@ -51,6 +51,7 @@ const registerServiceWorker = async () => {
   ); //notice the file name
   return swRegistration;
 };
+
 const requestNotificationPermission = async () => {
   const permission = await window.Notification.requestPermission();
   if (permission !== "granted") {
@@ -60,6 +61,7 @@ const requestNotificationPermission = async () => {
 
 const main = async () => {
   check();
+  const swRegistration = await registerServiceWorker();
   const permission = await requestNotificationPermission();
 };
 
