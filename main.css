@@ -1,8 +1,13 @@
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #d5fce7;
+    padding: 0.5rem 0rem;
+}
+
+nav h3{
+    color: rgb(0, 41, 0);
 }
 
 main {
